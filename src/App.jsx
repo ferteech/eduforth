@@ -7,6 +7,7 @@ import Explora from "./components/Explora";
 
 function App() {
   const [pantalla, setPantalla] = useState("login");
+  const [nombreUsuario, setNombreUsuario] = useState(""); // NUEVO
 
   const cambiarPantalla = (nueva) => {
     setPantalla(nueva);
@@ -14,8 +15,18 @@ function App() {
 
   return (
     <>
-      {pantalla === "login" && <Login onLogin={() => cambiarPantalla("dashboard")} />}
-      {pantalla === "dashboard" && <Dashboard cambiarPantalla={cambiarPantalla} />}
+      {pantalla === "login" && (
+        <Login
+          onLogin={() => cambiarPantalla("dashboard")}
+          setNombreUsuario={setNombreUsuario}
+        />
+      )}
+      {pantalla === "dashboard" && (
+        <Dashboard
+          cambiarPantalla={cambiarPantalla}
+          nombre={nombreUsuario} // PASAR NOMBRE AL DASHBOARD
+        />
+      )}
       {pantalla === "test" && <TestVocacional volver={() => cambiarPantalla("dashboard")} />}
       {pantalla === "abrazo" && <ModoAbrazo volver={() => cambiarPantalla("dashboard")} />}
       {pantalla === "explora" && <Explora volver={() => cambiarPantalla("dashboard")} />}

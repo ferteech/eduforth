@@ -1,40 +1,23 @@
-function Dashboard({ cambiarPantalla }) {
+export default function Dashboard({ cambiarPantalla, nombre }) {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 to-green-50 p-6">
-      <h1 className="text-3xl font-bold text-blue-700 mb-2">¡Bienvenido a EduForth!</h1>
-      <p className="text-md text-green-700 mb-6 text-center">Elige lo que quieres explorar hoy:</p>
+    <div className="p-6 text-center">
+      <h2 className="text-2xl font-bold text-blue-700 mb-2">¡Hola, {nombre}! 👋</h2>
+      <p className="text-green-700 mb-6">Bienvenido a tu espacio en EduForth</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-        <button
-          onClick={() => cambiarPantalla("test")}
-          className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition"
-        >
+      <div className="flex flex-col gap-4 max-w-xs mx-auto">
+        <button onClick={() => cambiarPantalla("test")} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl">
           🧠 Test Vocacional
         </button>
-
-        <button
-          onClick={() => cambiarPantalla("abrazo")}
-          className="bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl transition"
-        >
+        <button onClick={() => cambiarPantalla("abrazo")} className="bg-green-500 hover:bg-green-600 text-white py-2 rounded-xl">
           🤗 Modo Abrazo
         </button>
-
-        <button
-          onClick={() => cambiarPantalla("explora")}
-          className="bg-blue-400 hover:bg-blue-500 text-white py-3 rounded-xl transition"
-        >
-          📚 Explora Propósitos
+        <button onClick={() => cambiarPantalla("explora")} className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-xl">
+          📚 Explora tu Propósito
         </button>
-
-        <button
-          onClick={() => cambiarPantalla("login")}
-          className="bg-gray-500 hover:bg-gray-600 text-white py-3 rounded-xl transition"
-        >
+        <button onClick={() => cambiarPantalla("login")} className="bg-red-500 hover:bg-red-600 text-white py-2 rounded-xl">
           🔙 Salir
         </button>
       </div>
     </div>
   );
 }
-
-export default Dashboard;
