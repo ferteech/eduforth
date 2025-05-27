@@ -4,10 +4,11 @@ import Dashboard from "./components/Dashboard";
 import TestVocacional from "./components/TestVocacional";
 import ModoAbrazo from "./components/ModoAbrazo";
 import Explora from "./components/Explora";
+import Testimonios from "./components/Testimonios"; // ✅ Import correcto aquí
 
 function App() {
   const [pantalla, setPantalla] = useState("login");
-  const [nombreUsuario, setNombreUsuario] = useState(""); // NUEVO
+  const [nombreUsuario, setNombreUsuario] = useState("");
 
   const cambiarPantalla = (nueva) => {
     setPantalla(nueva);
@@ -24,12 +25,21 @@ function App() {
       {pantalla === "dashboard" && (
         <Dashboard
           cambiarPantalla={cambiarPantalla}
-          nombre={nombreUsuario} // PASAR NOMBRE AL DASHBOARD
+          nombre={nombreUsuario}
         />
       )}
-      {pantalla === "test" && <TestVocacional volver={() => cambiarPantalla("dashboard")} />}
-      {pantalla === "abrazo" && <ModoAbrazo volver={() => cambiarPantalla("dashboard")} />}
-      {pantalla === "explora" && <Explora volver={() => cambiarPantalla("dashboard")} />}
+      {pantalla === "test" && (
+        <TestVocacional volver={() => cambiarPantalla("dashboard")} />
+      )}
+      {pantalla === "abrazo" && (
+        <ModoAbrazo volver={() => cambiarPantalla("dashboard")} />
+      )}
+      {pantalla === "explora" && (
+        <Explora volver={() => cambiarPantalla("dashboard")} />
+      )}
+      {pantalla === "testimonios" && (
+        <Testimonios volver={() => cambiarPantalla("dashboard")} />
+      )}
     </>
   );
 }

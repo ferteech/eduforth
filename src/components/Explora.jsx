@@ -23,11 +23,15 @@ function Explora({ volver }) {
         </div>
       </div>
 
+      <p className="mt-6 text-sm text-blue-700 italic">
+        🌍 Otros jóvenes también están explorando propósito en <span className="font-semibold">tecnología</span>, <span className="font-semibold">educación</span> y <span className="font-semibold">sostenibilidad</span>.
+      </p>
+
       <button
         onClick={volver}
         className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl transition"
       >
-        Volver al Dashboard
+        🔙 Volver al Dashboard
       </button>
     </div>
   );
